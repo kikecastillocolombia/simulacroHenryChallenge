@@ -11,68 +11,45 @@ function crearClasePersona() {
       // Inicializar las propiedades de la persona con los valores recibidos como argumento
 
       // Tu código aca:
-
+                this.nombre = nombre;
+                this.edad = edad;
+                this.hobbies = hobbies;
+                this.amigos = amigos;
+            }
+    
+            addFriend(nombre, edad) {
+                this.amigos.push({ nombre: nombre, edad: edad });
+            }
+    
+            addHobby(hobby) {
+                this.hobbies.push(hobby);
+            }
+    
+            getFriends() {
+                // Retorna un arreglo con solo los nombres de los amigos
+                return this.amigos.map(amigo => amigo.nombre);
+            }
+    
+            getHobbies() {
+                // Retorna un arreglo con los hobbies de la persona
+                return this.hobbies;
+            }
+    
+            getPromedioEdad() {
+                // Retorna el promedio de edad de los amigos de la persona
+                const totalEdad = this.amigos.reduce((acc, amigo) => acc + amigo.edad, 0);
+                return totalEdad / this.amigos.length;
+            }
+    
+            getData() {
+                // Retorna un string con la información completa de la persona
+                return `${this.nombre} tiene ${this.edad} años`;
+            }
+        }
+    
+        return Persona;
     }
-
-    addFriend(nombre, edad) {
-      // El método 'addFriend' recibe un string 'nombre' y un entero 'edad' y debe agregar un objeto:
-      // { nombre: nombre, edad: edad} al arreglo de amigos de la persona.
-      // No debe retornar nada.
-
-      // Tu código aca:
-
-    }
-
-    addHobby(hobby) {
-      // El método 'addHobby' recibe un string 'hobby' y debe agregarlo al arreglo de hobbies de la persona.
-      // No debe retornar nada.
-
-      // Tu código aca:
-
-    }
-    getFriends() {
-      // El método 'getFriends' debe retornar un arreglo con sólo los nombres del arreglo de amigos
-      // de la persona.
-      // Ej:
-      // Suponiendo que la persona tiene estos amigos: [{nombre: 'martin', edad: 31},{nombre: 'toni', edad: 33}]
-      // persona.getFriends() debería devolver ['martin', 'toni']
-
-      // Tu código aca:
-
-    }
-
-    getHobbies() {
-      // El método 'getHobbies' debe retornar un arreglo con los hobbies de la persona
-      // Ej:
-      // persona.getHobbies() debe devolver ['correr', 'dormir', 'nadar']
-
-      // Tu código aca:
-
-    }
-
-    getPromedioEdad() {
-      // El método 'getPromedioEdad' debe retornar el promedio de edad de los amigos de una persona
-      // Ej:
-      // Si la persona tuviera estos amigos:
-      // {
-      //   amigos: [{
-      //     nombre: 'toni',
-      //     edad: 33,
-      //   }, {
-      //     nombre: 'Emi',
-      //     edad: 25
-      //   }]
-      // }
-      // persona.getPromedioEdad() debería devolver 29 ya que (33 + 25) / 2 = 29
-
-      // Tu código aca:
-
-    }
-  };
-
-  return Persona;
-}
-
+    
 // No modifiques nada debajo de esta linea //
 
 module.exports = crearClasePersona

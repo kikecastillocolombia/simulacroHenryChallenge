@@ -1,9 +1,3 @@
-/* 
-  Importante: 
-  No modificar ni el nombre ni los argumetos que reciben las funciones, sólo deben escribir
-  código dentro de las funciones ya definidas. 
-  No comentar la funcion 
-*/
 function buscarAmigo(amigos, nombre) {
   // La funcion llamada 'buscarAmigo' recibe como argumento un array llamado 'amigos' que contiene
   // en cada posición del arreglo un objeto que tiene como propiedades 'nombre' y 'edad'. También
@@ -14,9 +8,15 @@ function buscarAmigo(amigos, nombre) {
   //  buscarAmigo(amigos, 'toni') debe devolver { nombre: 'toni', edad: 33 };
 
   // Tu código aca:
+  for (let i = 0; i < amigos.length; i++) {
+      if (amigos[i].nombre === nombre) {
+          return amigos[i];
+      }
+  }
   
+  // Si no se encontró ninguna coincidencia, se devuelve `null`
+  return null;
 }
 
 // No modifiques nada debajo de esta linea //
-
-module.exports = buscarAmigo
+module.exports = buscarAmigo;
